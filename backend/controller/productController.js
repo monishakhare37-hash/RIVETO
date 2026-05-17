@@ -3,10 +3,21 @@ import Product from "../model/productModel.js";
 
 const safeUpload = async (fileArray) => {
   const filePath = fileArray?.[0]?.path;
+  
+  // If no file was uploaded for this field, safely return null
   if (!filePath) {
-    return null;
+    return null; 
   }
-  return uploadOnCloudinary(filePath);
+
+  // Await the Cloudinary upload
+  const uploadResult = await uploadOnCloudinary(filePath);
+  
+  // If Cloudinary fails and returns undefined/null, throw an error
+  if (!uploadResult) {
+    throw new Error("Image upload to Cloudinary failed");
+  }
+
+  return uploadResult;
 };
 
 export const addProduct = async (req, res) => {
