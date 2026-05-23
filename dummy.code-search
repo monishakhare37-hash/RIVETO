@@ -1,0 +1,9 @@
+# Query: dummy
+# ContextLines: 1
+
+1 result - 1 file
+
+frontend\utils\Firebase.js:
+  4  const firebaseConfig = {
+  5:   apiKey: "dummy",
+  6    authDomain: "logine-commerce-84eac.firebaseapp.com",

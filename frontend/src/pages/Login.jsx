@@ -200,7 +200,8 @@ function Login() {
         getCurrentUser();
         navigate("/");
       }, 500);
-    } catch (err) {
+    } catch (error) {
+      console.log(error);
       toast.error("Google login failed. Please try again.");
     } finally {
       setGoogleLoading(false);
